@@ -27,7 +27,7 @@ az login
 
 
 ## Test workbench
-A representation of our benchmark workbench is below. Visual Studio Code was used to implement the Terraform and Bicep scripts. Then Azure Cloud Shell was used to execute the scripts.
+A representation of our benchmark workbench is below. Visual Studio Code was used to implement the Bicep scripts. Then Azure Cloud Shell was used to execute the scripts.
 <p align="center">
   <img alt ="Test workbench" width="275" height="175" src="/media/test-workbench.png">
 </p>
@@ -40,42 +40,42 @@ The following Azure cloud services have been specified and the respective script
 * Azure Database for MySQL single server
 * Azure Blob Storage
 
-Azure Spring Cloud runtime, one Azure storage account, one MySQL server, and one Azure App Insights component was used for all the scenarios with both IaC tools. The services for both Terraform and Biceps are below. 
+Azure Spring Cloud runtime, one Azure storage account, one MySQL server, and one Azure App Insights component was used for all the scenarios with both IaC tools. The services for Biceps are below. 
 
 <p align="center">
-  <img alt ="Azure Services – Terraform definitions" src="/media/azure-services-bcp-definitions.png">
+  <img alt ="Azure Services – Bicep definitions" src="/media/azure-services-bcp-definitions.png">
 </p>
 
 ## Command line interface
-The executions were controlled and timed with Powershell and the Measure-Command cmdlet. A cmdlet is a lightweight command used in the PowerShell environment. Such strategy also provided an impartial way of starting the execution scripts for Terraform and Bicep.
+The executions were controlled and timed with Powershell and the Measure-Command cmdlet. A cmdlet is a lightweight command used in the PowerShell environment. Such strategy also provided an impartial way of starting the execution scripts for Bicep.
 
 <p align="center">
-  <img alt ="Azure Services – Terraform definitions" src="/media/lyit-perf-bcp-RUNNING.png">
+  <img alt ="Azure Services – Bicep definitions" src="/media/lyit-perf-bcp-RUNNING.png">
 </p>
 
 ## Bicep scripts
-Terraform modules were used to promote isolation, reusability, and modularity. Below we have the scripts for each Azure cloud service as implemented.
+Bicep modules were used to promote isolation, reusability, and modularity. Below we have the scripts for each Azure cloud service as implemented.
 
 ### Main Bicep project files
-The following Terraform scripts were created for the main Terraform project:
+The following Bicep scripts were created for the main Bicep project:
 * main.bicep
 
 ### Azure Application Insights
-The following Terraform scripts were created for Azure Application Insights:
+The following Bicep scripts were created for Azure Application Insights:
 * app-insights.bicep
 
 
 ### MySQL database
-The following Terraform scripts were created for MySQL:
+The following Bicep scripts were created for MySQL:
 * mysql.bicep
 
 
 ### Azure Spring Cloud
-The following Terraform scripts were created for Azure Spring Cloud:
+The following Bicep scripts were created for Azure Spring Cloud:
 * spring-cloud.bicep
 
 ### Azure Storage
-The following Terraform scripts were created for Azure Storage Blob:
+The following Bicep scripts were created for Azure Storage Blob:
 * storage.bicep
 
 The benchmarks considered a warm-up run to make sure that internally the components would be ready as expected, and then a test harness with 40 executions for each implemented was executed. 
@@ -85,16 +85,16 @@ The benchmarks considered a warm-up run to make sure that internally the compone
 An architectural representation was created as seen below for Bicep as well. To create the diagram, Visual Studio Code and the respective extension for Bicep can be used. 
 
 <p align="center">
-  <img alt ="Terraform - Architectural representation" src="/media/lyit-perf-bcp-DIAGRAM.png">
+  <img alt ="Bicep - Architectural representation" src="/media/lyit-perf-bcp-DIAGRAM.png">
 </p>
 
 
 ## Tests and metrics - Bicep
 
-To execute the deployment scripts for Terraform, it is required to access the Azure Portal, then start a session with the Azure Cloud Shell. Select the option to use Powershell instead of the standard bash option as shown below.
+To execute the deployment scripts for Bicep, it is required to access the Azure Portal, then start a session with the Azure Cloud Shell. Select the option to use Powershell instead of the standard bash option as shown below.
 
 <p align="center">
-  <img alt ="Terraform - Architectural representation" src="/media/azure-portal-powershell.png">
+  <img alt ="Bicep - Architectural representation" src="/media/azure-portal-powershell.png">
 </p>
 
 Then create an empty directory, and then clone the respective GitHub repository:
@@ -128,20 +128,20 @@ Measure-Command { az deployment sub create --name 'lyit-perf-bcpdev' --location 
 As soon as the execution completes, a message is shown as below. You can then extract the metrics to compose the benchmark analysis:
 
 <p align="center">
-  <img alt ="Terraform - Architectural representation" src="/media/lyit-perf-bcp-SUCCESS.png">
+  <img alt ="Bicep - Architectural representation" src="/media/lyit-perf-bcp-SUCCESS.png">
 </p>
 
 After many runs, you can aggregate and analyse the results as required. A sample Excel spreadsheet is below along
 with a couple of charts.
 
 <p align="center">
-  <img alt ="Terraform - Architectural representation" src="/media/bicep-SAMPLES.png">
+  <img alt ="Bicep - Architectural representation" src="/media/bicep-SAMPLES.png">
 </p>
 
 <p align="center">
-  <img alt ="Terraform - Architectural representation" src="/media/bicep-CHART-1.png">
+  <img alt ="Bicep - Architectural representation" src="/media/bicep-CHART-1.png">
 </p>
 
 <p align="center">
-  <img alt ="Terraform - Architectural representation" src="/media/bicep-CHART-2.png">
+  <img alt ="Bicep - Architectural representation" src="/media/bicep-CHART-2.png">
 </p>
