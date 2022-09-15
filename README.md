@@ -43,7 +43,7 @@ The following Azure cloud services have been specified and the respective script
 Azure Spring Cloud runtime, one Azure storage account, one MySQL server, and one Azure App Insights component was used for all the scenarios with both IaC tools. The services for Biceps are below. 
 
 <p align="center">
-  <img alt ="Azure Services – Bicep definitions" src="/media/azure-services-bcp-definitions.png">
+  <img alt ="Azure Services – Bicep definitions" src="/media/azure-services-biceps-definitions.png">
 </p>
 
 ## Command line interface
